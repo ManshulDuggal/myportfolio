@@ -20,7 +20,7 @@ const Wrap = () => {
         <div className="!w-11/12 m-auto flex flex-col justify-center items-center space-y-16">
           <Intro />
           <Divide />
-          <ProjectsCards />
+          {/* <ProjectsCards /> */}
           <Divide />
           <About />
           <Divide />
