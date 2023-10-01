@@ -17,7 +17,7 @@ const Wrap = () => {
           <Navbar />
         </div>
 
-        <div className="!w-11/12 m-auto flex flex-col justify-center items-center space-y-16">
+        <div className="!w-11/12 m-auto flex flex-col justify-center items-center space-y-28">
           <Intro />
           <Divide />
           <ProjectsCards />
