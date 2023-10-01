@@ -55,110 +55,109 @@ const defaultValues: Partial<AccountFormValues> = {
   // dob: new Date("2023-01-23"),
 };
 
-export const FormC = () => {
+async function onSubmit(data: AccountFormValues) {
+  console.log(JSON.stringify(data));
+
+  await fetch("/api/send", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export default function FormC() {
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues,
   });
 
-  async function onSubmit(data: AccountFormValues) {
-    console.log(JSON.stringify(data));
+  return (
+    <div>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your name" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the name that will be displayed on your profile and in
+                  emails.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* MESSAGE AND SUBJECT */}
 
-    await fetch(process.env.BASE_URL + "/api/send", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>message</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Tell us a little bit about the content of your message"
+                    className="resize-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  This is the message that will be sent
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-    return (
-      <div>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your name" {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    This is the name that will be displayed on your profile and
-                    in emails.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            {/* MESSAGE AND SUBJECT */}
+          <FormField
+            control={form.control}
+            name="subject"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Subject</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Type the content of message here"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  This is the subject that will be sent
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>message</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Tell us a little bit about the content of your message"
-                      className="resize-none"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    This is the message that will be sent
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          {/* email */}
 
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Subject</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Type the content of message here"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    This is the subject that will be sent
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter a Email " {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the emali used for sending
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-            {/* email */}
-
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter a Email " {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    This is the emali used for sending
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <Button variant={"secondary"} type="submit">
-              Send
-            </Button>
-          </form>
-        </Form>
-      </div>
-    );
-  }
-};
-export default FormC;
+          <Button variant={"secondary"} type="submit">
+            Send
+          </Button>
+        </form>
+      </Form>
+    </div>
+  );
+}

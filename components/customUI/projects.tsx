@@ -23,7 +23,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import ScrollAnim from "@/components/anim/scrollAnim";
 import FadeAnim from "@/components/anim/fade";
 import { Button } from "@/components/ui/button";
-import { db } from "@/lib/client";
+
 interface projectData {
   id: string;
   Description: string;

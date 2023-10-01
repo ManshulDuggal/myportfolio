@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FormC } from "./FormC";
+import FormC from "./FormC";
 import { Button } from "@/components/ui/button";
 
 export default function Contact() {
@@ -17,7 +17,7 @@ export default function Contact() {
         </Button>
         For inquiries or Contact me using the form Below
       </p>
-      {/* <FormC /> */}
+      <FormC />
     </div>
   );
 }
