@@ -15,9 +15,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST({ email, message, name, subject }: formData) {
   try {
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: email,
       to: "manshuld7@gmail.com",
-      subject: "Hello world",
+      subject: subject,
       react: EmailTemplate({
         name: name,
         email: email,
