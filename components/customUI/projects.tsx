@@ -23,6 +23,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import ScrollAnim from "@/components/anim/scrollAnim";
 import FadeAnim from "@/components/anim/fade";
 import { Button } from "@/components/ui/button";
+import { db } from "@/lib/client";
 interface projectData {
   id: string;
   Description: string;
@@ -31,12 +32,17 @@ interface projectData {
   Name: string;
   JP_Description: string;
   ProjectLink: string;
-  SubHeading: string;
+  SubHeading?: string;
   ImageLink: string;
 }
 
+async function getData() {
+  const data = db.projects.findMany();
+  return data;
+}
+
 const ProjectsCards = async () => {
-  const data = await getProjects();
+  const dataProjects = await getData();
 
   // const dataUrl = URL.createObjectURL(data);
 
@@ -54,7 +60,7 @@ const ProjectsCards = async () => {
                 <div className="absolute pointer-events-none overflow-clip aspect-video bg-inherit ">
                   <VideoBg />
                 </div>
-                {data.map((ProjectData: projectData) => (
+                {dataProjects.map((ProjectData: projectData) => (
                   <div
                     key={ProjectData.id}
                     className="cursor-pointer hover:scale-110 duration-100 "

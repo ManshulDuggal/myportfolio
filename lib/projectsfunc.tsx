@@ -1,8 +1,7 @@
-export async function getProjects() {
-  const res = await fetch(process.env.BASE_URL + "/api/projects");
-  if (!res.ok) {
-    throw new Error("failed");
-  }
+import { db } from "./client";
 
-  return res.json();
+export async function getProjects() {
+  const res: any = await db.projects.findMany();
+
+  return JSON.parse(res);
 }
