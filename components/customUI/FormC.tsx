@@ -56,11 +56,27 @@ const defaultValues: Partial<AccountFormValues> = {
 };
 
 async function onSubmit(data: AccountFormValues) {
+
+  const requestBody = {
+    email: data.email,
+    message: data.message,
+    name: data.name,
+    subject: data.subject,
+  };
+
   console.log(JSON.stringify(data));
 
-   await fetch("/api/send", {
+  await fetch("/api/send", {
     method: "POST",
-    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: requestBody.name,
+      message: requestBody.message,
+      subject: requestBody.subject,
+      email: requestBody.email,
+    }),
   });
 }
 
