@@ -43,13 +43,13 @@ const ProjectsCards = async () => {
   return (
     <>
       <ScrollAnim>
-        <div id="Projects" className="scroll-mt-96 text-sm lg:text-base">
-          <div className=" w-screen h-auto flex flex-col  justify-center text-center p-4  gap-10 overflow-hidden">
+        <div id="Projects" className="lg:scroll-mt-96 text-sm lg:text-base  ">
+          <div className=" w-screen h-auto  lg:flex lg:flex-col block justify-center text-center p-4  gap-10 overflow-hidden">
             <h1 className="dark:text-white　text-black ">Projects</h1>
             <ScrollArea className="rounded-md border p-4">
               <ScrollBar orientation="vertical" />
               <section className="lg:grid lg:grid-cols-3 grid grid-cols-1  lg:gap-10 space-y-28  overflow-x-scroll   justify-center items-center p-4 relative  ">
-                <div className="absolute pointer-events-none overflow-clip aspect-video bg-inherit ">
+                <div className="lg:absolute absolute  pointer-events-none lg:overflow-clip lg:aspect-video lg:bg-inherit ">
                   <VideoBg />
                 </div>
                 {dataProjects.map((ProjectData: projectData) => (

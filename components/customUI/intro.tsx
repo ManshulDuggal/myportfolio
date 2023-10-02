@@ -5,8 +5,8 @@ import { ArrowDownIcon } from "@radix-ui/react-icons";
 const Intro = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center text-center space-y-5 h-screen font-light">
-        <div className="max-w-xl">
+      <section className="flex flex-col items-center justify-center text-center space-y-5 h-screen  lg:font-light ">
+        <div className="max-w-xl ">
           <h1>
             As a software engineer, I excel at quickly learning and implementing
             new technologies and concepts. I have a proven track record of
@@ -16,14 +16,14 @@ const Intro = () => {
             high-quality results
           </h1>
         </div>
-        <div className="flex space-x-20 items-center justify-center">
-          <Button className="h-auto w-auto">
+        <div className="flex space-x-20 items-center justify-center ">
+          <Button className="h-auto w-auto text-xs lg:text-base">
             <a href="ResumeEN.pdf" download>
               Download CV
             </a>
             <ArrowDownIcon
               href="/Docs/ResumeEN"
-              className=" animate animate-pulse w-5 "
+              className=" animate animate-pulse lg:w-5 h-auto text-xs lg:text-base w-max "
             />{" "}
           </Button>
           <Button>Contact me here</Button>

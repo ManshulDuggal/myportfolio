@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en" className="">
       {/* children goes here which for now is just "Pages being passed down" */}
       <body className={`${roboto_mono.className} `}>
         <ThemeProvider
