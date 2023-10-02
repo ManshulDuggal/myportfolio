@@ -1,11 +1,12 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDownIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 const Intro = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center text-center space-y-5 h-screen  lg:font-light ">
+      <section className="flex flex-col items-center justify-center text-center space-y-5 lg:h-screen h-screen lg:font-light ">
         <div className="max-w-xl ">
           <h1>
             As a software engineer, I excel at quickly learning and implementing
@@ -26,7 +27,9 @@ const Intro = () => {
               className=" animate animate-pulse lg:w-5 h-auto text-xs lg:text-base w-max "
             />{" "}
           </Button>
-          <Button>Contact me here</Button>
+          <Button>
+            <Link href={"#Contact"}> Contact me here</Link>
+          </Button>
         </div>
       </section>
     </>

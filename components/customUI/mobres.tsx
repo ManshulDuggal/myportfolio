@@ -1,5 +1,7 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { useTheme } from "next-themes";
+import { motion, AnimatePresence, animate } from "framer-motion";
 
 import {
   Cross1Icon,
@@ -12,12 +14,16 @@ import { NavigationMenuItem } from "../ui/navigation-menu";
 import NavLinks from "@/lib/arraydummy/NavLinks";
 import { clsx } from "clsx";
 import SlideAnim from "../anim/Slide";
+import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 interface Props {}
 
 const Mobres = () => {
   const [open, Setopen] = useState<boolean>();
   const [active, Setactive] = useState<string>("#Home");
+
+  const { theme, setTheme } = useTheme();
 
   function toggle(data: string) {
     Setopen(!open);
@@ -30,10 +36,27 @@ const Mobres = () => {
           {open ? (
             <>
               <motion.div
-                className="bg-red-500 w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 "
-                key={"modal"}
+                key={"data"}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut",
+                }}
+                className={
+                  (cn(
+                    "w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 "
+                  ),
+                  theme === "light"
+                    ? "bg-black text-white w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 "
+                    : "bg-white text-black w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 ")
+                }
               >
-                <Cross1Icon onClick={() => Setopen(!open)} className=" " />
+                <Cross1Icon
+                  onClick={() => Setopen(!open)}
+                  className="w-6 h-6"
+                />
                 {NavLinks.map((data) => (
                   <NavigationMenuItem
                     aria-description="This is home"
@@ -72,7 +95,10 @@ const Mobres = () => {
               </motion.div>
             </>
           ) : (
-            <DragHandleHorizontalIcon onClick={() => Setopen(!open)} />
+            <DragHandleHorizontalIcon
+              onClick={() => Setopen(!open)}
+              className="w-6 h-6"
+            />
           )}
         </nav>
       </div>

@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-50 hidden bg-white dark:bg-transparent bg-opacity-40  backdrop-blur-lg font-normal  rounded-xl p-2 list-none  lg:flex lg:flex-row gap-10  justify-between dark:shadow-md shadow-md   dark:shadow-pink-200   items-center  ">
+      <nav className="z-50 hidden lg:flex bg-white dark:bg-transparent bg-opacity-40 backdrop-blur-lg font-normal rounded-xl p-2 list-none   gap-10  justify-between dark:shadow-md shadow-md   dark:shadow-pink-200   items-center  ">
         <section className="flex items-center lg:space-x-10">
           <div className="">
             <h1
@@ -33,7 +33,7 @@ const Navbar = () => {
           {NavLinks.map((data) => (
             <NavigationMenuItem
               aria-description="This is home"
-              className="select-none cursor-pointer   "
+              className="select-none cursor-pointer "
               key={data.head}
               onClick={() => Setactive(data.link)}
             >

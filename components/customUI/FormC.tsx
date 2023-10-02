@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   FormControl,
@@ -56,7 +56,6 @@ const defaultValues: Partial<AccountFormValues> = {
 };
 
 async function onSubmit(data: AccountFormValues) {
-
   const requestBody = {
     email: data.email,
     message: data.message,
@@ -81,6 +80,8 @@ async function onSubmit(data: AccountFormValues) {
 }
 
 export default function FormC() {
+  const [submit, Setsubmitting] = useState<boolean>();
+
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues,
@@ -94,12 +95,16 @@ export default function FormC() {
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
+              <FormItem className="text-sm  lg:text-base ">
+                <FormLabel className="text-sm lg:text-base">Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your name" {...field} />
+                  <Input
+                    placeholder="Your name"
+                    className="placeholder:text-xs lg:placeholder:text-base"
+                    {...field}
+                  />
                 </FormControl>
-                <FormDescription>
+                <FormDescription className="text-xs lg:text-base">
                   This is the name that will be displayed on your profile and in
                   emails.
                 </FormDescription>
@@ -114,11 +119,11 @@ export default function FormC() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>message</FormLabel>
+                <FormLabel className="text-md lg:text-base">message</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Tell us a little bit about the content of your message"
-                    className="resize-none"
+                    className="placeholder:text-xs lg:placeholder:text-base resize-y"
                     {...field}
                   />
                 </FormControl>
@@ -135,9 +140,10 @@ export default function FormC() {
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Subject</FormLabel>
+                <FormLabel className="text-sm lg:text-base">Subject</FormLabel>
                 <FormControl>
                   <Input
+                    className="placeholder:text-xs lg:placeholder:text-base "
                     placeholder="Type the content of message here"
                     {...field}
                   />
@@ -157,9 +163,13 @@ export default function FormC() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-sm lg:text-base">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter a Email " {...field} />
+                  <Input
+                    placeholder="Enter a Email "
+                    {...field}
+                    className="placeholder:text-xs lg:placeholder:text-base "
+                  />
                 </FormControl>
                 <FormDescription>
                   This is the emali used for sending
@@ -169,8 +179,8 @@ export default function FormC() {
             )}
           />
 
-          <Button variant={"secondary"} type="submit">
-            Send
+          <Button variant={"outline"} size={"lg"} type="submit">
+            Submit
           </Button>
         </form>
       </Form>

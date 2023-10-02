@@ -36,6 +36,7 @@
     "negotiator": "^0.6.3",
     "next": "13.4.19",
     "next-i18next": "^14.0.3",
+    "next-intl": "^3.0.0-beta.19",
     "next-themes": "^0.2.1",
     "postcss": "8.4.29",
     "react": "18.2.0",

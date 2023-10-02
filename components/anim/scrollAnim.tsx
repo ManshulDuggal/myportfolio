@@ -16,7 +16,7 @@ const ScrollAnim = ({ children }: { children: React.ReactNode }) => {
     stiffness: 500,
     damping: 120,
   });
-  const OpacityProgress = useTransform(scrollYProgress, [0.5, 1], [0.8, 1]);
+  const OpacityProgress = useTransform(scrollYProgress, [0.2, 1], [0.8, 1]);
 
   return (
     <motion.div
