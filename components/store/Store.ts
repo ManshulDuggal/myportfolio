@@ -1,6 +1,4 @@
-// import { boolean } from "zod";
 import { create } from "zustand";
-
 interface GenerationState {
   isLoading: boolean;
   setIsloading: (isLoading: boolean) => void;
