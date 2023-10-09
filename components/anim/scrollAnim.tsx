@@ -9,7 +9,7 @@ const ScrollAnim = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 2", "1.33 2"],
+    offset: ["0 3", "1.33 2"],
   });
 
   const ScaleProgress = useSpring(scrollYProgress, {

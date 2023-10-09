@@ -15,9 +15,9 @@ const Projects = async () => {
   return (
     <>
       <div id="Projects" className=" sm:text-sm lg:text-base  ">
-        <ScrollAnim>
-          <ProjectsCards dataProjects={dataProjects} />
-        </ScrollAnim>
+        {/* <ScrollAnim> */}
+        <ProjectsCards dataProjects={dataProjects} />
+        {/* </ScrollAnim> */}
       </div>
     </>
   );

@@ -41,7 +41,7 @@ const ProjectsCards = ({ dataProjects }: { dataProjects: projectData[] }) => {
           {language === "en" ? "Projects" : "プロジェクト"}
         </h1>
 
-        <section className="lg:grid lg:grid-cols-3 grid grid-cols-1  lg:gap-10 space-y-20   justify-center items-center p-4 relative max-w-7xl m-auto ">
+        <section className="lg:grid lg:grid-cols-3 block  lg:gap-10 space-y-20   justify-center items-center p-4 relative max-w-7xl m-auto ">
           <div className="lg:absolute hidden lg:block  pointer-events-none lg:overflow-clip lg:aspect-video lg:bg-inherit ">
             <VideoBg />
           </div>

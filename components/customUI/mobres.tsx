@@ -32,7 +32,7 @@ const Mobres = () => {
   return (
     <AnimatePresence initial={false}>
       <div className="lg:hidden">
-        <nav className=" fixed inset-0  z-[500]">
+        <nav className="fixed top-0 left-0 z-[10] w-full ">
           {open ? (
             <>
               <motion.div
