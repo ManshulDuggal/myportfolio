@@ -54,7 +54,12 @@ const accountFormSchema = z.object({
 
 type AccountFormValues = z.infer<typeof accountFormSchema>;
 
-const defaultValues: Partial<AccountFormValues> = {};
+const defaultValues: Partial<AccountFormValues> = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
 
 export default function FormC() {
   const loading = useGenerationStore().isLoading;
