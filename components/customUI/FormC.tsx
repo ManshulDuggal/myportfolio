@@ -8,12 +8,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import z from "zod";
+import z, { boolean } from "zod";
+import { useGenerationStore } from "../store/Store";
+import Timeout from "./Timeout";
+import { constrainedMemory, title } from "process";
+import { toast } from "../ui/use-toast";
 
 const accountFormSchema = z.object({
   name: z
@@ -50,40 +54,61 @@ const accountFormSchema = z.object({
 
 type AccountFormValues = z.infer<typeof accountFormSchema>;
 
-const defaultValues: Partial<AccountFormValues> = {
-  // name: "Your name",
-  // dob: new Date("2023-01-23"),
-};
-
-async function onSubmit(data: AccountFormValues) {
-  const requestBody = {
-    email: data.email,
-    message: data.message,
-    name: data.name,
-    subject: data.subject,
-  };
-
-  console.log(JSON.stringify(data));
-
-  await fetch("/api/send", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name: requestBody.name,
-      message: requestBody.message,
-      subject: requestBody.subject,
-      email: requestBody.email,
-    }),
-  });
-}
+const defaultValues: Partial<AccountFormValues> = {};
 
 export default function FormC() {
+  const loading = useGenerationStore().isLoading;
+  const setLoading = useGenerationStore().setIsloading;
+
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues,
   });
+
+  async function onSubmit(data: AccountFormValues) {
+    setLoading(true); // Step 2: Set loading state to true during form submission
+
+    const requestBody = {
+      email: data.email,
+      message: data.message,
+      name: data.name,
+      subject: data.subject,
+    };
+
+    try {
+      await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: requestBody.name,
+          message: requestBody.message,
+          subject: requestBody.subject,
+          email: requestBody.email,
+        }),
+      });
+
+      // Form submission successful
+      toast({
+        title: "form sbumitted successfully",
+      });
+      // You can use your own toast library or notification method here
+
+      // Reset the form or perform any other necessary actions
+      form.reset();
+    } catch (error) {
+      // Handle form submission error
+      console.error("Form submission error:", error);
+      toast({
+        title: "error in form submission",
+      });
+
+      // Display an error message
+    } finally {
+      setLoading(false); // Step 3: Set loading state back to false
+    }
+  }
 
   return (
     <div>
@@ -177,7 +202,7 @@ export default function FormC() {
             )}
           />
 
-          <Button variant={"outline"} size={"lg"} type="submit">
+          <Button variant={"outline"} type="submit" disabled={loading}>
             Submit
           </Button>
         </form>
