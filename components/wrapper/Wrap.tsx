@@ -7,6 +7,7 @@ import About from "../customUI/about";
 import Skills from "../customUI/skills";
 import Contact from "../customUI/contact";
 import Mobres from "../customUI/mobres";
+import Projects from "../customUI/projects";
 
 interface Props {}
 
@@ -23,7 +24,7 @@ const Wrap = () => {
         <div className="!w-11/12  m-auto flex flex-col justify-center items-center lg:space-y-28">
           <Intro />
           <Divide />
-          <ProjectsCards />
+          <Projects />
           <Divide />
           <About />
           <Divide />
