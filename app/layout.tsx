@@ -2,21 +2,13 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { roboto_mono } from "@/utils/fonts";
 
-
 //theme provider used for dark mode swithching
 import { ThemeProvider } from "@/components/theme-provider";
-
 
 export const metadata: Metadata = {
   title: "Portfollio showcase",
   description: "Created using Typescriptn Next Js and Shadcn UI Library",
 };
-
-
-
-
-
-
 
 export default function RootLayout({
   children,

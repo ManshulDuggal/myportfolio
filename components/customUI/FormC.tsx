@@ -80,8 +80,6 @@ async function onSubmit(data: AccountFormValues) {
 }
 
 export default function FormC() {
-  const [submit, Setsubmitting] = useState<boolean>();
-
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues,

@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import Wrap from "@/components/wrapper/Wrap";
 import { NextPage } from "next";
 
@@ -8,6 +9,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Wrap />
+      <Toaster />
     </>
   );
 };

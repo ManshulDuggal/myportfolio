@@ -12,6 +12,7 @@ import { clsx } from "clsx";
 
 import NavLinks from "@/lib/arraydummy/NavLinks";
 import { useState } from "react";
+import LanguageChange from "../LanguageChange";
 
 const Navbar = () => {
   const [active, Setactive] = useState<string>("#Home");
@@ -66,6 +67,9 @@ const Navbar = () => {
 
         <div className="">
           <ToggleTheme />
+        </div>
+        <div className="">
+          <LanguageChange />
         </div>
       </nav>
     </>
