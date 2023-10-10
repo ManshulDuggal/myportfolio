@@ -3,20 +3,15 @@
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence, animate } from "framer-motion";
 
-import {
-  Cross1Icon,
-  DragHandleHorizontalIcon,
-  LineHeightIcon,
-  ThickArrowUpIcon,
-} from "@radix-ui/react-icons";
+import { Cross1Icon, DragHandleHorizontalIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import { NavigationMenuItem } from "../ui/navigation-menu";
 import NavLinks from "@/lib/arraydummy/NavLinks";
 import { clsx } from "clsx";
-import SlideAnim from "../anim/Slide";
-import { cva } from "class-variance-authority";
+
 import { cn } from "@/lib/utils";
 import LanguageChange from "../LanguageChange";
+import { useGenerationStore } from "../store/Store";
 
 interface Props {}
 
@@ -25,6 +20,8 @@ const Mobres = () => {
   const [active, Setactive] = useState<string>("#Home");
 
   const { theme, setTheme } = useTheme();
+
+  const language = useGenerationStore().language;
 
   function toggle(data: string) {
     Setopen(!open);
@@ -78,7 +75,7 @@ const Mobres = () => {
                       )}
                       href={data.link}
                     >
-                      {data.head}
+                      {language === "en" ? data.head : data.jp_head}
 
                       {active === data.link ? (
                         <motion.span

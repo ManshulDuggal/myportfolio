@@ -13,9 +13,11 @@ import { clsx } from "clsx";
 import NavLinks from "@/lib/arraydummy/NavLinks";
 import { useState } from "react";
 import LanguageChange from "../LanguageChange";
+import { useGenerationStore } from "../store/Store";
 
 const Navbar = () => {
   const [active, Setactive] = useState<string>("#Home");
+  const language = useGenerationStore().language;
 
   return (
     <>
@@ -45,7 +47,7 @@ const Navbar = () => {
                 })}
                 href={data.link}
               >
-                {data.head}
+                {language === "en" ? data.head : data.jp_head}
 
                 {active === data.link ? (
                   <motion.span
