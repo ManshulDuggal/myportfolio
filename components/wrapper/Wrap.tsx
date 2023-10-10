@@ -21,7 +21,7 @@ const Wrap = () => {
 
         <Mobres />
 
-        <div className="!w-11/12  m-auto flex flex-col justify-center items-center lg:space-y-28">
+        <div className="!w-11/12  m-auto flex flex-col justify-center items-center lg:space-y-28 space-y-10">
           <Intro />
           <Divide />
           <Projects />

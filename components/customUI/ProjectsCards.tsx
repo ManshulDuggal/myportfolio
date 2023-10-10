@@ -56,10 +56,15 @@ const ProjectsCards = ({ dataProjects }: { dataProjects: projectData[] }) => {
                   {language === "en" ? ProjectData.Name : ProjectData.JP_Name}
                 </CardHeader>
 
-                <CardContent className="flex flex-col space-y-4 justify-center items-center text-center">
-                  <div className="flex space-x-2 justify-center ">
+                <CardContent className="flex flex-col space-y-4 gap-5 justify-center items-center text-center">
+                  <div className="flex flex-wrap  space-x-2 justify-center ">
                     {ProjectData.Made_using.map((data) => (
-                      <Badge key={data}>{data}</Badge>
+                      <Badge
+                        key={data}
+                        className="text-[0.5rem] lg:text-xs mt-2 mb-2 md:m-0  "
+                      >
+                        {data}
+                      </Badge>
                     ))}
                   </div>
 

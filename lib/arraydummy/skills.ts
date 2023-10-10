@@ -17,6 +17,8 @@ const SkillsData: SkillsProps = {
     "Prisma",
     "NPM",
     "Redux",
+    "zod",
+    "zustand",
   ],
 };
 

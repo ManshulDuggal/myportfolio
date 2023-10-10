@@ -16,6 +16,7 @@ import { clsx } from "clsx";
 import SlideAnim from "../anim/Slide";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import LanguageChange from "../LanguageChange";
 
 interface Props {}
 
@@ -49,14 +50,17 @@ const Mobres = () => {
                     "w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 "
                   ),
                   theme === "light"
-                    ? "bg-black text-white w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 "
-                    : "bg-white text-black w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 ")
+                    ? "bg-white text-black w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 "
+                    : "bg-black text-white w-[300px] h-screen flex flex-col items-center m-auto fixed p-4 ")
                 }
               >
                 <Cross1Icon
                   onClick={() => Setopen(!open)}
                   className="w-6 h-6"
                 />
+
+                <LanguageChange />
+
                 {NavLinks.map((data) => (
                   <NavigationMenuItem
                     aria-description="This is home"
