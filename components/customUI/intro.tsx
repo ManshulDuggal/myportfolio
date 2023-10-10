@@ -10,7 +10,7 @@ const Intro = () => {
 
   return (
     <>
-      <div className="dark:bg-gradient-to-t bg-gradient-to-t  dark:to-stone-900   dark:from-black/5 from-white  via-slate-100  to-white  lg:p-24 w-full  ">
+      <div className="dark:bg-gradient-to-t bg-gradient-to-t  dark:to-stone-900   dark:from-black/5 from-white  via-slate-100  to-white  lg:p-24 p-4 w-full  ">
         {language === "en" ? (
           <section className="flex   flex-col items-center justify-center text-center space-y-5 lg:h-screen h-screen lg:font-light     ">
             <div className="max-w-xl  ">
