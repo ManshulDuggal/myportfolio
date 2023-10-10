@@ -12,6 +12,7 @@ import { clsx } from "clsx";
 import { cn } from "@/lib/utils";
 import LanguageChange from "../LanguageChange";
 import { useGenerationStore } from "../store/Store";
+import { ToggleTheme } from "../themes/toggletheme";
 
 interface Props {}
 
@@ -93,6 +94,8 @@ const Mobres = () => {
                     </a>
                   </NavigationMenuItem>
                 ))}
+
+                <ToggleTheme />
               </motion.div>
             </>
           ) : (
