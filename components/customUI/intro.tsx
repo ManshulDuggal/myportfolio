@@ -10,11 +10,11 @@ const Intro = () => {
 
   return (
     <>
-      <div className="dark:bg-gradient-to-b bg-gradient-to-b  dark:from-stone-700   dark:to-slate-black  lg:p-24 w-full  ">
+      <div className="dark:bg-gradient-to-b bg-gradient-to-b  dark:from-black dark:via-pink-950   dark:to-black from-white  via-stone-100  to-white  lg:p-24 w-full  ">
         {language === "en" ? (
-          <section className="flex flex-col items-center justify-center text-center space-y-5 lg:h-screen h-screen lg:font-light     ">
-            <div className="max-w-xl ">
-              <h1>
+          <section className="flex   flex-col items-center justify-center text-center space-y-5 lg:h-screen h-screen lg:font-light     ">
+            <div className="max-w-xl  ">
+              <h1 className="">
                 As a software engineer, I excel at quickly learning and
                 implementing new technologies and concepts. I have a proven
                 track record of reducing team stress, introducing innovative
